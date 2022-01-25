@@ -11,3 +11,5 @@ func TestViewState(t *testing.T) {
 		t.Errorf("Feil, fikk %q, ønsket %q.", state, wanted)
 	}
 }
+
+
