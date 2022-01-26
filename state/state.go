@@ -1,6 +1,7 @@
 package main
 
-var tilstand string;
+
+var tilstand string
 
 func ViewState()string{
 	return Tilstander()
