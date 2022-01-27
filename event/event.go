@@ -1,37 +1,65 @@
 package event
 
-func Put(item string)string  {
-	return "[rev korn hs ---V \\_"+item+"___/___________/ Ø---]"
-
+var tilstand string
+var items = [] string{
+	"kylling",
+	"rev",
+	"korn",
 }
 
-func GetIn(item string)string  {
-	return "[rev korn ---V \\_hs+"+item+"_/___________/ Ø---]"
 
+
+
+func Tilstander(tilstanden string)string{
+	tilstand = tilstanden
+	tilstand = "[kylling rev korn mann ---V \\____/___________/ Ø---]"
+	return tilstanden
 }
 
-/* Tester ut kode
-func GetIn(item string, items []string) string{
-	returnString := "["
+func FirstPut(item string)string  {
+	tilstand := "["
 	for i:=0; i < len(items); i++{
 		if item != items[i]{
-			returnString += items[i] + " "
+			tilstand += items[i] + " "
 		}
 	}
-	returnString += " ---V \\_mann+"+item+"_/___________/ Ø---]"
-	return returnString
-}*/
+
+	if(item == items[1]){
+		tilstand = ""+items[1]+ " spiser " +items[2]
+	}
+	if(item == items[2]){
+		tilstand = ""+items[1]+ " spiser " +items[0]
+	} else {
+		tilstand += " ---V \\_hs+"+item+"_/___________/ Ø---]"
+	}
+	return Tilstander(tilstand)
+
+
+
+}
+
+//mann og ting skal i båten
+//må være samme ting som i put-funksjonen
+
+func GetIn(item string)string  {
+	tilstand = "[rev korn ---V \\_hs+"+item+"_/___________/ Ø---]"
+	return Tilstander(tilstand)
+
+}
 
 func CrossRiver(item string)string  {
-	return "[rev korn ---V \\___________\\_hs+"+item+"___/ Ø---]"
+	tilstand = "[rev korn ---V \\___________\\_hs+"+item+"___/ Ø---]"
+	return Tilstander(tilstand)
 
 }
 
 func TakeOut(item string)string  {
-	return "[rev korn ---V \\___________\\_hs___/ Ø--- "+item+"]"
+	tilstand = "[rev korn ---V \\___________\\_hs___/ Ø--- "+item+"]"
+	return Tilstander(tilstand)
 
 }
 
 func GetOut(item string)string{
-	return "[rev korn ---V \\___________\\____/ Ø--- hs "+item+"]"
+	tilstand = "[rev korn ---V \\___________\\____/ Ø--- hs "+item+"]"
+	return Tilstander(tilstand)
 }
