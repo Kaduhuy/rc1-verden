@@ -7,7 +7,6 @@ import (
 	"testing"
 )
 
-
 func TestPutIn(t *testing.T)  {
 	wanted := "[rev korn  ---V \\_hs+kylling_/___________/ Ø---]"
 	got := FirstPut("kylling")//hente korn
@@ -15,6 +14,7 @@ func TestPutIn(t *testing.T)  {
 		t.Errorf("Feil, fikk %q, ønsket %q.", got, wanted)
 	}
 }
+
 
 func TestGetIn(t *testing.T)  {
 	wanted := "[rev korn ---V \\_hs+kylling_/___________/ Ø---]"

@@ -1,26 +1,38 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"github.com/Kaduhuy/rc1-verden/event"
-	"github.com/digitnow/rivercrossing/state"
+	"os"
 
 	//"rc1-verden/event"
 )
 
-var items = [] string{
+/*var items = [] string{
 
 "kylling",
 "rev",
 "korn",
-}
+}*/
 
 
 func main() {
-	fmt.Println(state.ViewState())
-	fmt.Println(event.FirstPut(items[0]))
-	fmt.Println(event.GetIn(items[0]))
-	fmt.Println(event.CrossRiver(items[0]))
-	fmt.Println(event.TakeOut(items[0]))
-	fmt.Println(event.GetOut(items[0]))
+
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for {
+		fmt.Println("Hva vil du sende over? --> kylling, rev eller korn")
+		scanner.Scan()
+		text := scanner.Text()
+		fmt.Println(event.FirstPut(text))
+		fmt.Println(event.GetIn(text))
+		fmt.Println(event.CrossRiver(text))
+		fmt.Println(event.TakeOut(text))
+		fmt.Println(event.GetOut(text))
+		if(text == "kylling"){
+			break
+		}
+	}
+
 }
